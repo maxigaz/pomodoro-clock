@@ -15,13 +15,18 @@ $(document).ready(function() {
 	});
 
 	$(".break-length .decrease").click(function() {
-		$(".break-length .num").text(breakLength - 1);
-		breakLength--;
+		// We don't want 0 or negative values
+		if (breakLength > 1) {
+			$(".break-length .num").text(breakLength - 1);
+			breakLength--;
+		}
 	});
 
 	$(".session-length .decrease").click(function() {
-		$(".session-length .num").text(sessionLength - 1);
-		sessionLength--;
+		if (sessionLength > 1) {
+			$(".session-length .num").text(sessionLength - 1);
+			sessionLength--;
+		}
 	});
 
 	// setInterval(function() {
