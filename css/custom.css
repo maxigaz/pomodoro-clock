@@ -51,6 +51,15 @@ h1 {
 	margin: 0 5px;
 }
 
+.control-buttons {
+	margin: 40px auto 10px;
+}
+
+.control-buttons button {
+	display: block;
+	margin: 10px auto;
+}
+
 img {
 	filter: brightness(70%);
 }
