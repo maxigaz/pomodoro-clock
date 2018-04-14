@@ -34,9 +34,11 @@ h1 {
 	border: 2px solid #ff0c55;
 	border-radius: 100%;
 	cursor: pointer;
+	height: 300px;
 	margin: 80px auto 10px;
 	padding: 60px;
 	text-align: center;
+	width: 300px;
 }
 
 .clock .label {
