@@ -41,7 +41,7 @@ $(document).ready(function() {
 	});
 
 	setInterval(function() {
-		// Switch between sessions and breaks when time's up
+		// Switch between sessions and breaks and play sound when time's up
 		if (timeLeft === 1) {
 			// Are we having a session or a break?
 			if (!isBreak) {
@@ -54,6 +54,8 @@ $(document).ready(function() {
 				$(".clock .label").text("Session");
 				timeLeft = sessionLength * 60;
 			}
+			var audio = new Audio('sound/bell.oga');
+			audio.play();
 		}
 
 		// Work with seconds and translate it into mm:ss format
