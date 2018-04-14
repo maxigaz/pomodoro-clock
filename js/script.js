@@ -7,16 +7,21 @@ $(document).ready(function() {
 
 	// Update on increasing/decreasing value
 	$(".break-length .increase").click(function() {
+		isRunning = false;
 		$(".break-length .num").text(breakLength + 1);
 		breakLength++;
 	});
 
 	$(".session-length .increase").click(function() {
+		isRunning = false;
 		$(".session-length .num").text(sessionLength + 1);
 		sessionLength++;
+		$(".clock .num").text(sessionLength);
+		timeLeft = sessionLength * 60;
 	});
 
 	$(".break-length .decrease").click(function() {
+		isRunning = false;
 		// We don't want 0 or negative values
 		if (breakLength > 1) {
 			$(".break-length .num").text(breakLength - 1);
@@ -25,9 +30,12 @@ $(document).ready(function() {
 	});
 
 	$(".session-length .decrease").click(function() {
+		isRunning = false;
 		if (sessionLength > 1) {
 			$(".session-length .num").text(sessionLength - 1);
 			sessionLength--;
+			$(".clock .num").text(sessionLength);
+			timeLeft = sessionLength * 60;
 		}
 	});
 
