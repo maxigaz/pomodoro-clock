@@ -2,6 +2,7 @@ $(document).ready(function() {
 	// Get current value that's displayed (initialization)
 	var breakLength = +$(".break-length .num").text();
 	var sessionLength = +$(".session-length .num").text();
+	var timeLeft = +$(".clock .num").text() * 60;
 
 	// Update on increasing/decreasing value
 	$(".break-length .increase").click(function() {
@@ -29,8 +30,16 @@ $(document).ready(function() {
 		}
 	});
 
-	// setInterval(function() {
-		// Get current value that's displayed and decrease by one?
-		// Or work with seconds and translate it into mm:ss format
-	// }, 1000);
+	setInterval(function() {
+		// Work with seconds and translate it into mm:ss format
+		timeLeft--;
+		var minutes = Math.floor(timeLeft / 60);
+		var seconds = timeLeft % 60;
+		if (seconds === 0) {
+			$(".clock .num").text(minutes);
+		}
+		else {
+			$(".clock .num").text(minutes + ":" + seconds);
+		}
+	}, 1000);
 });
