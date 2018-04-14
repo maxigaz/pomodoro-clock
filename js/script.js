@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// Get current value that's displayed (initialization)
 	var breakLength = +$(".break-length .num").text();
 	var sessionLength = +$(".session-length .num").text();
-	var timeLeft = +$(".clock .num").text() * 60;
+	var timeLeft = 25 * 60;
 	var isRunning = false;
 	var isBreak = false;
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
 		pause();
 		$(".session-length .num").text(sessionLength + 1);
 		sessionLength++;
-		$(".clock .num").text(sessionLength);
+		$(".clock .num").text(sessionLength + ":00");
 		timeLeft = sessionLength * 60;
 	});
 
@@ -35,7 +35,7 @@ $(document).ready(function() {
 		if (sessionLength > 1) {
 			$(".session-length .num").text(sessionLength - 1);
 			sessionLength--;
-			$(".clock .num").text(sessionLength);
+			$(".clock .num").text(sessionLength + ":00");
 			timeLeft = sessionLength * 60;
 		}
 	});
@@ -62,10 +62,7 @@ $(document).ready(function() {
 		}
 		var minutes = Math.floor(timeLeft / 60);
 		var seconds = timeLeft % 60;
-		if (seconds === 0) {
-			$(".clock .num").text(minutes);
-		}
-		else if (seconds.toString().length == 1) {
+		if (seconds.toString().length == 1) {
 			$(".clock .num").text(minutes + ":0" + seconds);
 		}
 		else {
