@@ -7,14 +7,13 @@ $(document).ready(function() {
 
 	// Update on increasing/decreasing value
 	$(".break-length .increase").click(function() {
-		isRunning = false;
+		pause();
 		$(".break-length .num").text(breakLength + 1);
 		breakLength++;
 	});
 
 	$(".session-length .increase").click(function() {
-		isRunning = false;
-		$(".clock").css("border-color", "#ff0c55");
+		pause();
 		$(".session-length .num").text(sessionLength + 1);
 		sessionLength++;
 		$(".clock .num").text(sessionLength);
@@ -22,7 +21,7 @@ $(document).ready(function() {
 	});
 
 	$(".break-length .decrease").click(function() {
-		isRunning = false;
+		pause();
 		// We don't want 0 or negative values
 		if (breakLength > 1) {
 			$(".break-length .num").text(breakLength - 1);
@@ -31,8 +30,7 @@ $(document).ready(function() {
 	});
 
 	$(".session-length .decrease").click(function() {
-		isRunning = false;
-		$(".clock").css("border-color", "#ff0c55");
+		pause();
 		if (sessionLength > 1) {
 			$(".session-length .num").text(sessionLength - 1);
 			sessionLength--;
@@ -62,12 +60,21 @@ $(document).ready(function() {
 	// Pause countdown on click
 	$(".clock").click(function() {
 		if (isRunning) {
-			isRunning = false;
-			$(".clock").css("border-color", "#ff0c55");
+			pause();
 		}
 		else {
-			isRunning = true;
-			$(".clock").css("border-color", "#084aff");
+			unPause();
 		}
 	});
+
+	// Functions to actually pause (to somewhat reduce code)
+	function unPause() {
+		isRunning = true;
+		$(".clock").css("border-color", "#084aff");
+	}
+
+	function pause() {
+		isRunning = false;
+		$(".clock").css("border-color", "#ff0c55");
+	}
 });
