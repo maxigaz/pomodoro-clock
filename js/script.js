@@ -47,12 +47,12 @@ $(document).ready(function() {
 			if (!isBreak) {
 				isBreak = true;
 				$(".clock .label").text("Break");
-				timeLeft = breakLength * 60;
+				timeLeft = breakLength * 60 + 1;
 			}
 			else {
 				isBreak = false;
 				$(".clock .label").text("Session");
-				timeLeft = sessionLength * 60;
+				timeLeft = sessionLength * 60 + 1;
 			}
 			var audio = new Audio('sound/bell.oga');
 			audio.play();
