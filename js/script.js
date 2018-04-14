@@ -3,6 +3,7 @@ $(document).ready(function() {
 	var breakLength = +$(".break-length .num").text();
 	var sessionLength = +$(".session-length .num").text();
 	var timeLeft = +$(".clock .num").text() * 60;
+	var isRunning = false;
 
 	// Update on increasing/decreasing value
 	$(".break-length .increase").click(function() {
@@ -32,7 +33,9 @@ $(document).ready(function() {
 
 	setInterval(function() {
 		// Work with seconds and translate it into mm:ss format
-		timeLeft--;
+		if (isRunning) {
+			timeLeft--;
+		}
 		var minutes = Math.floor(timeLeft / 60);
 		var seconds = timeLeft % 60;
 		if (seconds === 0) {
@@ -45,4 +48,14 @@ $(document).ready(function() {
 			$(".clock .num").text(minutes + ":" + seconds);
 		}
 	}, 1000);
+
+	// Pause countdown on click
+	$(".clock").click(function(e) {
+		if (isRunning) {
+			isRunning = false;
+		}
+		else {
+			isRunning = true;
+		}
+	});
 });
