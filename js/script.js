@@ -80,6 +80,15 @@ $(document).ready(function() {
 		}
 	});
 
+	$(".pause").click(function() {
+		if (isRunning) {
+			pause();
+		}
+		else {
+			unPause();
+		}
+	});
+
 	// Functions to actually pause (to somewhat reduce code)
 	function unPause() {
 		isRunning = true;
