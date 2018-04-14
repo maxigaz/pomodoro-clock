@@ -14,6 +14,7 @@ $(document).ready(function() {
 
 	$(".session-length .increase").click(function() {
 		isRunning = false;
+		$(".clock").css("border-color", "#ff0c55");
 		$(".session-length .num").text(sessionLength + 1);
 		sessionLength++;
 		$(".clock .num").text(sessionLength);
@@ -31,6 +32,7 @@ $(document).ready(function() {
 
 	$(".session-length .decrease").click(function() {
 		isRunning = false;
+		$(".clock").css("border-color", "#ff0c55");
 		if (sessionLength > 1) {
 			$(".session-length .num").text(sessionLength - 1);
 			sessionLength--;
@@ -61,9 +63,11 @@ $(document).ready(function() {
 	$(".clock").click(function() {
 		if (isRunning) {
 			isRunning = false;
+			$(".clock").css("border-color", "#ff0c55");
 		}
 		else {
 			isRunning = true;
+			$(".clock").css("border-color", "#084aff");
 		}
 	});
 });
