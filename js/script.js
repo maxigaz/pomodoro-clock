@@ -2,8 +2,10 @@ $(document).ready(function() {
 	// Get current value that's displayed (initialization)
 	var breakLength = +$(".break-length .num").text();
 	var sessionLength = +$(".session-length .num").text();
-	var timeLeft = +$(".clock .num").text() * 60;
+	// var timeLeft = +$(".clock .num").text() * 60;
+	var timeLeft = 3;
 	var isRunning = false;
+	var isBreak = false;
 
 	// Update on increasing/decreasing value
 	$(".break-length .increase").click(function() {
@@ -40,6 +42,21 @@ $(document).ready(function() {
 	});
 
 	setInterval(function() {
+		// Switch between sessions and breaks when time's up
+		if (timeLeft === 0) {
+			// Are we having a session or a break?
+			if (!isBreak) {
+				isBreak = true;
+				$(".clock .label").text("Break");
+				timeLeft = breakLength * 60;
+			}
+			else {
+				isBreak = false;
+				$(".clock .label").text("Session");
+				timeLeft = sessionLength * 60;
+			}
+		}
+
 		// Work with seconds and translate it into mm:ss format
 		if (isRunning) {
 			timeLeft--;
