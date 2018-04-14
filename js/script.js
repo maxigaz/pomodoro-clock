@@ -38,6 +38,9 @@ $(document).ready(function() {
 		if (seconds === 0) {
 			$(".clock .num").text(minutes);
 		}
+		else if (seconds.toString().length == 1) {
+			$(".clock .num").text(minutes + ":0" + seconds);
+		}
 		else {
 			$(".clock .num").text(minutes + ":" + seconds);
 		}
