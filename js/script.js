@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 	setInterval(function() {
 		// Switch between sessions and breaks when time's up
-		if (timeLeft === 0) {
+		if (timeLeft === 1) {
 			// Are we having a session or a break?
 			if (!isBreak) {
 				isBreak = true;
