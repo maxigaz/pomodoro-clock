@@ -33,6 +33,7 @@ h1 {
 .clock {
 	border: 2px solid #084aff;
 	border-radius: 100%;
+	cursor: pointer;
 	margin: 80px auto 10px;
 	padding: 60px;
 	text-align: center;
