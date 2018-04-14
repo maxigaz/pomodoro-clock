@@ -58,7 +58,7 @@ $(document).ready(function() {
 	}, 1000);
 
 	// Pause countdown on click
-	$(".clock").click(function(e) {
+	$(".clock").click(function() {
 		if (isRunning) {
 			isRunning = false;
 		}
