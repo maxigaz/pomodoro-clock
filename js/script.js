@@ -89,6 +89,13 @@ $(document).ready(function() {
 		}
 	});
 
+	// Reset button's behaviour
+	$('.reset').click(function() {
+		pause();
+		$(".clock .num").text(sessionLength + ":00");
+		timeLeft = sessionLength * 60;
+	});
+
 	// Functions to actually pause (to somewhat reduce code)
 	function unPause() {
 		isRunning = true;
