@@ -2,8 +2,7 @@ $(document).ready(function() {
 	// Get current value that's displayed (initialization)
 	var breakLength = +$(".break-length .num").text();
 	var sessionLength = +$(".session-length .num").text();
-	// var timeLeft = +$(".clock .num").text() * 60;
-	var timeLeft = 3;
+	var timeLeft = +$(".clock .num").text() * 60;
 	var isRunning = false;
 	var isBreak = false;
 
